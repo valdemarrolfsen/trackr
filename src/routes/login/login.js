@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 class Login extends Component {
   render() {
     return (
-      <h1>Hello World!!!!!!</h1>
+      <button onClick={this.props.listTasks()} >click me</button>
     )
   }
 

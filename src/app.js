@@ -1,12 +1,15 @@
 import React, {Component, PropTypes} from 'react';
 import {browserHistory, Router} from 'react-router';
-import {createStore, applyMiddleware, compose} from 'redux';
-import {Provider} from 'react-redux';
+import {createStore, applyMiddleware, compose, bindActionCreators} from 'redux';
+import {Provider, connect} from 'react-redux';
 
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 import reducer from './redux/combinedReducers';
+import {ActionCreators} from './redux/actionCreators';
+
+import Main from './main';
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ });
 
@@ -15,7 +18,7 @@ function configureStore(initialState) {
     applyMiddleware(
       thunkMiddleware,
       loggerMiddleware
-    ),
+    )
   );
   return createStore(reducer, initialState, enhancer);
 }
@@ -30,7 +33,7 @@ export default class App extends Component {
 
     return (
       <Provider store={store}>
-        <Router history={browserHistory} children={routes} />
+        <Main routes={routes} {...this.props} />
       </Provider>
     )
   }

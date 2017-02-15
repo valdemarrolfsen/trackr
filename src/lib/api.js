@@ -30,7 +30,7 @@ class Api {
   static xhr(route, params, verb, host) {
 
     if (host == null)
-      host = 'https://addb.absolutdrinks.com';
+      host = 'http://localhost:8000/api';
 
     const url = `${host}${route}`;
 

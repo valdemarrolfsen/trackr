@@ -1,5 +1,7 @@
-import * as TaskActions from './tasks/actions';
+import * as TripActions from './trips/actions';
+import * as UserActions from './user/actions';
 
 export const ActionCreators = Object.assign({},
-    TaskActions
+  TripActions,
+  UserActions
 );

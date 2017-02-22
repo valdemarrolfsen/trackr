@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from '../components/header/header';
 
+import './coreLayout.scss';
+
 export const CoreLayout = ({ children }) => (
-  <div className='container text-center'>
+  <div>
     <Header />
-    <div className='has-nav-md'>
+    <div className='has-nav-md container'>
       {children}
     </div>
   </div>

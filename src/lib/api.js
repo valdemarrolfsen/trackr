@@ -1,18 +1,19 @@
 /**
  * Created by valdemarrolfsen on 24.01.2017.
  */
+
+import axios from 'axios';
+
 class Api {
   static headers() {
     return {
       'Accept':'application/json',
       'Content-Type':'application/json',
-      'dataType':'json',
-      'X-RequestedWith':'XMLHttpRequest'
     }
   }
 
-  static get(route, host = null) {
-    return this.xhr(route, null, 'GET', host)
+  static get(route) {
+    return this.xhr(route, null, 'GET')
   }
 
   static put(route, params) {
@@ -27,20 +28,16 @@ class Api {
     return this.xhr(route, params, 'DELETE')
   }
 
-  static xhr(route, params, verb, host) {
+  static xhr(route, params, verb) {
 
-    if (host == null)
-      host = 'http://localhost:8000/api';
-
-    const url = `${host}${route}`;
+    const url = `http://10.22.18.195:8080/v1.0${route}`;
 
     let options = Object.assign({method:verb}, params ? {body: JSON.stringify(params)} : null);
     options.headers = Api.headers();
 
-    return fetch(url, options)
-      .then( resp => resp.json())
+    return axios(url, options)
       .then( resp => {
-        return resp;
+        return resp.data;
     }).catch(err => {throw err});
   }
 }

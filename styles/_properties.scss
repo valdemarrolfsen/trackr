@@ -6,6 +6,53 @@ Created by Valdemar Rolfsen 2016
 
 */
 
+// Padding and margins
+
+@for $i from 0 to 10 {
+  @for $j from 0 to 10 {
+    .p-#{$i}-#{$j} {
+      padding: #{$i}em #{$j}em;
+    }
+
+    .m-#{$i}-#{$j} {
+      margin: #{$i}em #{$j}em;
+    }
+  }
+}
+
+.p-top {
+  padding-bottom: 0;
+}
+
+.p-bottom {
+  padding-top: 0;
+}
+
+.p-right {
+  padding-left: 0;
+}
+
+.p-left {
+  padding-right: 0;
+}
+
+.m-top {
+  margin-bottom: 0;
+}
+
+.m-right {
+  margin-left: 0;
+}
+
+.m-left {
+  margin-right: 0;
+}
+
+.m-bottom {
+  margin-top: 0;
+}
+
+
 // Height & Width
 // --------------------
 

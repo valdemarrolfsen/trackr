@@ -4,6 +4,7 @@
 $padding: 20px;
 
 $sb-width: 300px;
+$sb-border-color: lighten($dark, 10%);
 
 .map-container {
   height: calc(100vh - 80px);
@@ -24,8 +25,12 @@ $sb-width: 300px;
     height: 100%;
     width: 100%;
     padding: $padding;
-    border: 1px solid lighten($dark, 10%);
+    border: 1px solid $sb-border-color;
     border-radius: 3px;
+
+    .dividing-border {
+      border-top: 1px solid $sb-border-color;
+    }
   }
 }
 

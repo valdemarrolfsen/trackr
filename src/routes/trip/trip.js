@@ -65,7 +65,7 @@ class Trip extends Component {
 
       trip.geoPoints.forEach(point => {
 
-        icon.fillColor = `rgb(${point.altitude}, ${point.altitude}, ${point.altitude})`;
+        icon.fillColor = `rgba(22, 160, 133, ${point.altitude/500})`;
         icon.strokeColor = icon.fillColor;
 
         let marker = new google.maps.Marker({

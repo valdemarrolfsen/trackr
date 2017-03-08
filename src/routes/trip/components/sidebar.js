@@ -13,7 +13,7 @@ class Sidenav extends Component {
     return (
       <div className="sidebar color-light">
         <div className="t-center">
-          <h4 className="t-300 t-upper">Key points</h4>
+          <h6 className="t-400 t-upper">Key heights</h6>
           <div className="row p-2-0">
             <div className="c-m-4">
               <p>Max height:</p>
@@ -28,6 +28,24 @@ class Sidenav extends Component {
             <div className="c-m-4">
               <p>Min height:</p>
               <p><span className="fs-30">245</span>m</p>
+            </div>
+          </div>
+
+          <div className="row p-2-0 dividing-border">
+            <div className="c-m-12">
+              <h6 className="t-400 t-upper">Total air time</h6>
+            </div>
+          </div>
+
+          <div className="row row-center">
+            <div className="c-m-4">
+              <p><span className="fs-30">2</span>hours</p>
+            </div>
+            <div className="c-m-4">
+              <p><span className="fs-30">34</span>minutes</p>
+            </div>
+            <div className="c-m-4">
+              <p><span className="fs-30">56</span>seconds</p>
             </div>
           </div>
         </div>

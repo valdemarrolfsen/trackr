@@ -9,6 +9,7 @@ class Api {
     return {
       'Accept':'application/json',
       'Content-Type':'application/json',
+      'Authorization':localStorage.getItem('token')
     }
   }
 
@@ -30,9 +31,10 @@ class Api {
 
   static xhr(route, params, verb) {
 
-    const url = `http://10.22.18.195:8080/v1.0${route}`;
+    // 10.22.18.195
+    const url = `http://localhost:8080/v1.0${route}`;
 
-    let options = Object.assign({method:verb}, params ? {body: JSON.stringify(params)} : null);
+    let options = Object.assign({method:verb}, params ? {data: JSON.stringify(params)} : null);
     options.headers = Api.headers();
 
     return axios(url, options)

@@ -1,7 +1,7 @@
 import {guardRoute} from '../../lib/authGuard';
 
 export default (store) => ({
-  path : 'trips',
+  path : 'trips/:id/',
 
   onEnter: guardRoute,
 
@@ -12,12 +12,12 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
        dependencies for bundling   */
-      const Trips = require('./trips').default;
+      const Trip = require('./trip').default;
 
       /*  Return getComponent   */
-      cb(null, Trips);
+      cb(null, Trip);
 
       /* Webpack named bundle   */
-    }, 'trips')
+    }, 'trip')
   }
 })

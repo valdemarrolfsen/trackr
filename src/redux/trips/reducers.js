@@ -6,3 +6,9 @@ export const trips = createReducer([], {
       return action.trips;
     }
 });
+
+export const selectedTrip = createReducer(null, {
+  [types.SET_SELECTED_TRIP](state, action) {
+    return action.trip;
+  }
+});

@@ -1,22 +1,48 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import { IndexLink, Link } from 'react-router';
+import {connect} from 'react-redux'
 
 import logo from '../../resources/img/trackr-logo.png'
 
 import './header.scss';
 
-export const Header = () => (
-  <nav className="header nav nav-md nav-fixed nav-end nav-center-v nav-primary">
-    <Link to='/' className="nav-logo">
-      <img src={logo} alt=""/>
-    </Link>
+class Header extends Component {
 
-    <ul className="fs-14">
-      <li><Link to='/' activeClassName='active'>Home</Link></li>
-      <li><Link to='/trips' activeClassName='active'>Trips</Link></li>
-      <li><Link to='/login' activeClassName='active'>Sign in</Link></li>
-    </ul>
-  </nav>
-);
+  render() {
 
-export default Header
+    let links = [
+      {name: 'Home', path: '/'},
+      {name: 'Trips', path: '/trips'},
+    ];
+
+    if (this.props.isAuth) {
+      links.push({name: 'Sign out', path: '/logout'});
+    } else {
+      links.push({name: 'Sign in', path: '/login'});
+    }
+
+    links = links.map((link, i) => {
+      return <li key={i}><Link to={link.path} activeClassName='active'>{link.name}</Link></li>;
+    });
+
+    return (
+      <nav className="header nav nav-md nav-fixed nav-end nav-center-v nav-primary">
+        <Link to='/' className="nav-logo">
+          <img src={logo} alt=""/>
+        </Link>
+
+        <ul className="fs-14">
+          {links}
+        </ul>
+      </nav>
+    )
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    isAuth:state.isAuthenticated
+  }
+}
+
+export default connect(mapStateToProps)(Header);

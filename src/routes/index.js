@@ -3,6 +3,7 @@ import CoreLayout from '../layouts/coreLayout'
 import Home from './home'
 import Login from './login'
 import Trips from './trips';
+import Trip from './trip';
 
 export const createRoutes = (store) => ({
   path        : '/',
@@ -10,7 +11,8 @@ export const createRoutes = (store) => ({
   indexRoute  : Home,
   childRoutes : [
     Login(store),
-    Trips(store)
+    Trips(store),
+    Trip(store)
   ]
 });
 

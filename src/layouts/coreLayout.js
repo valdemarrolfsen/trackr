@@ -1,19 +1,41 @@
-import React from 'react'
+import React, {Component, PropTypes} from 'react'
 import Header from '../components/header/header';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux';
+
+// Custom
+import {ActionCreators} from '../redux/actionCreators';
 
 import './coreLayout.scss';
 
-export const CoreLayout = ({ children }) => (
-  <div>
-    <Header />
-    <div className='has-nav-md container'>
-      {children}
-    </div>
-  </div>
-);
+class CoreLayout extends Component {
 
-CoreLayout.propTypes = {
-  children : React.PropTypes.element.isRequired
-};
+  static propTypes = {
+    children : PropTypes.element.isRequired
+  };
 
-export default CoreLayout
+  componentDidMount() {
+    this.props.refreshToken();
+  };
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <div className='has-nav-md container'>
+          {this.props.children}
+        </div>
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {}
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoreLayout);

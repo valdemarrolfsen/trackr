@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
+import {browserHistory} from 'react-router';
 
 // Custom
 import {ActionCreators} from '../../redux/actionCreators';
 import Button from '../../components/button/button';
+import Form from '../../components/form/form';
 
 // Resources
 import logo from '../../resources/img/simple-logo.png';
@@ -18,25 +20,20 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      username: String,
-      password: String
+      username: '',
+      password: ''
     }
   }
 
   doLogin(e) {
 
-    console.log(e);
-
     // Needs to prevent default behaviour
     e.preventDefault();
 
     return this.props.loginUser(this.state.username, this.state.password).then(() => {
-      console.log('Finished');
+      browserHistory.push('/trips');
+      console.log('User logged in');
     });
-  }
-
-  bindValue(obj, e) {
-    this.setState({obj: e.target.value});
   }
 
   render() {
@@ -46,17 +43,14 @@ class Login extends Component {
 
         <form className="cover-content w-400" onSubmit={(e) => {this.doLogin(e)}}>
 
-          <div className="t-center">
-            <img className="w-100" src={logo} alt="" />
-          </div>
-
           <div className="p-2-0">
             <div className="material-input">
 
               <input type="text"
                      name="username"
                      id="username"
-                     onChange = {(e) => {this.bindValue('username', e)}}
+                     value = {this.state.username}
+                     onChange = {(e) => {this.setState({username: e.target.value})}}
                      required />
 
               <label htmlFor="username">Username</label>
@@ -70,7 +64,8 @@ class Login extends Component {
               <input type="password"
                      name="password"
                      id="password"
-                     onChange = {(e) => {this.bindValue('password', e)}}
+                     value = {this.state.password}
+                     onChange = {(e) => {this.setState({password: e.target.value})}}
                      required />
 
               <label htmlFor="password">Password</label>
@@ -79,9 +74,10 @@ class Login extends Component {
           </div>
 
           <div className="p-2-0">
-            <Button classNames={'btn-lg btn-border-light w-100-p rounded-3'}
+            <Button classNames={'btn-lg btn-border-light w-100-p rounded-3 fs-12'}
                     loading={false}
                     type={'submit'}
+                    rightIcon={'sign-in'}
                     text={'Sign in'} />
           </div>
 

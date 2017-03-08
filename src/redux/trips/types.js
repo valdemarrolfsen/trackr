@@ -1,1 +1,2 @@
 export const SET_TRIPS = 'SET_TRIPS';
+export const SET_SELECTED_TRIP = 'SET_SELECTED_TRIP';

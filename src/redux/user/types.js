@@ -1,1 +1,1 @@
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';

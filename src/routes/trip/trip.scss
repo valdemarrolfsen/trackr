@@ -1,4 +1,33 @@
-.map {
+@import "../../../styles/variables";
+
+// Variables
+$padding: 20px;
+
+$sb-width: 300px;
+
+.map-container {
   height: calc(100vh - 80px);
   width: 100vw;
+  padding: $padding;
+
+  background: $dark;
+
+  .map {
+    height: 100%;
+  }
+
+  .sidebar-container {
+    padding-left: $padding;
+  }
+
+  .sidebar {
+    height: 100%;
+    width: 100%;
+    padding: $padding;
+    border: 1px solid lighten($dark, 10%);
+    border-radius: 3px;
+  }
 }
+
+
+

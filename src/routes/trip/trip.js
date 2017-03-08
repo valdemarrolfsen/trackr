@@ -2,6 +2,8 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 
+import Sidebar from './components/sidebar';
+
 import {ActionCreators} from '../../redux/actionCreators';
 
 import './trip.scss';
@@ -84,7 +86,14 @@ class Trip extends Component {
     }
 
     return (
-      <div className="map" id="map"></div>
+      <div className="map-container">
+        <div className="row h-100-p">
+          <div className="map c-s-8" id="map"></div>
+          <div className="sidebar-container c-s-4">
+            <Sidebar></Sidebar>
+          </div>
+        </div>
+      </div>
     );
   }
 }

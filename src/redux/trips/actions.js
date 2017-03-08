@@ -3,16 +3,16 @@ import Api from '../../lib/api';
 
 export function listTrips() {
   return (dispatch, getState) => {
-    return Api.get('/users/me/trips/').then(resp => {
-      dispatch(setTrips({trips: resp}));
+    return Api.get('/me/trips/').then(resp => {
+      dispatch(setTrips({trips: resp.trips}));
     })
   }
 }
 
 export function getTrip(id) {
   return (dispatch, getState) => {
-    return Api.get(`/users/me/trips/${id}`).then(resp => {
-      dispatch(setSelectedTrip({trip:resp}));
+    return Api.get(`/trips/${id}`).then(resp => {
+      dispatch(setSelectedTrip({trip:resp.trip}));
     })
   }
 }

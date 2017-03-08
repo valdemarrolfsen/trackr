@@ -33,7 +33,9 @@ class TripChart extends Component {
         data: {
           datasets: [{
             label: 'Simo data',
-            data: data
+            data: data,
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            borderColor: 'rgba(255, 255, 255, 0.3)'
           }]
         },
         options: {
@@ -49,7 +51,7 @@ class TripChart extends Component {
 
     return (
       <div>
-        <canvas id="tripChart" width="50" height="50"></canvas>
+        <canvas id="tripChart"></canvas>
       </div>
     )
   }

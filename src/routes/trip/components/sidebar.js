@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import {ActionCreators} from '../../../redux/actionCreators';
 
 import TripChart from './chart';
+import Button from '../../../components/button/button';
 
 class Sidenav extends Component {
 
@@ -14,7 +15,7 @@ class Sidenav extends Component {
 
     return (
       <div className="sidebar color-light">
-        <div className="t-center">
+        <div className="h-100-p t-center">
           <h6 className="t-400 t-upper">Key heights</h6>
           <div className="row p-2-0">
             <div className="c-m-4">
@@ -50,7 +51,23 @@ class Sidenav extends Component {
               <p><span className="fs-30">56</span>seconds</p>
             </div>
           </div>
-          <div className="row">
+
+          <div className="row row-center p-2-0">
+            <div className="c-m-6 p-0-1 p-right">
+              <Button classNames={'btn-sm btn-border-stable rounded-3 w-100-p h-40'}
+                      loading={false}
+                      rightIcon="pencil"
+                      text={'Edit info'} />
+            </div>
+            <div className="c-m-6 p-0-1 p-left">
+              <Button classNames={'btn-sm btn-border-stable rounded-3 w-100-p h-40'}
+                      loading={false}
+                      rightIcon="star-o"
+                      text={'Set as favourite'} />
+            </div>
+          </div>
+
+          <div className="row chart-container">
             <div className="c-m-12">
               <TripChart></TripChart>
             </div>

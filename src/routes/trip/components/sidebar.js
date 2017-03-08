@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 
 import {ActionCreators} from '../../../redux/actionCreators';
 
+import TripChart from './chart';
+
 class Sidenav extends Component {
 
 
@@ -46,6 +48,11 @@ class Sidenav extends Component {
             </div>
             <div className="c-m-4">
               <p><span className="fs-30">56</span>seconds</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="c-m-12">
+              <TripChart></TripChart>
             </div>
           </div>
         </div>

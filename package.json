@@ -19,6 +19,7 @@
   "dependencies": {
     "assets-webpack-plugin": "^3.5.1",
     "axios": "^0.15.3",
+    "chart.js": "^2.5.0",
     "google-maps": "^3.2.1",
     "jwt-decode": "^2.1.0",
     "leaflet": "^1.0.3",

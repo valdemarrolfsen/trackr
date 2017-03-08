@@ -31,6 +31,7 @@ class Trip extends Component {
 
     this.state.map = new google.maps.Map(document.getElementById('map'), {
       zoom: 4,
+      streetViewControl: false,
       center: uluru
     });
 

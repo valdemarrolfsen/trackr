@@ -1,29 +1,28 @@
 import React, {Component, PropTypes} from 'react'
-import Header from '../components/header/header';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
+
+import Sidebar from '../components/sidenav/sidenav';
 
 // Custom
 import {ActionCreators} from '../redux/actionCreators';
 
 import './coreLayout.scss';
 
-class CoreLayout extends Component {
+class DashboardLayout extends Component {
 
   static propTypes = {
     children : PropTypes.element.isRequired
   };
 
-  componentDidMount() {
-    this.props.refreshToken();
-  };
-
   render() {
     return (
-      <div>
-        <Header/>
-        <div className='has-nav-md container'>
-          {this.props.children}
+      <div className="h-100-p">
+        <Sidebar />
+        <div className="dashboard-container bg-stable-light w-100-p has-nav-side-lg">
+          <div className="row p-2-2">
+            {this.props.children}
+          </div>
         </div>
       </div>
     );
@@ -38,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoreLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardLayout);

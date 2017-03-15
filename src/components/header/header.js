@@ -11,11 +11,11 @@ class Header extends Component {
   render() {
 
     let links = [
-      {name: 'Home', path: '/'},
-      {name: 'Trips', path: '/trips'},
+      {name: 'Home', path: '/'}
     ];
 
     if (this.props.isAuth) {
+      links.push({name: 'Trips', path: '/trips/'});
       links.push({name: 'Sign out', path: '/logout'});
     } else {
       links.push({name: 'Sign in', path: '/login'});

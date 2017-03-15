@@ -1,3 +1,7 @@
-.trip-container {
-  min-height: calc(100vh - 80px);
+.active {
+  .nav-item {
+    span {
+      opacity: 1;
+    }
+  }
 }

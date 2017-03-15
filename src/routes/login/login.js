@@ -31,7 +31,7 @@ class Login extends Component {
     e.preventDefault();
 
     return this.props.loginUser(this.state.username, this.state.password).then(() => {
-      browserHistory.push('/trips');
+      browserHistory.push('/trips/all');
       console.log('User logged in');
     });
   }

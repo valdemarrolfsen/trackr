@@ -1,8 +1,6 @@
 import {guardRoute} from '../../lib/authGuard';
 
 export default (store) => ({
-  path : 'trips',
-
   onEnter: guardRoute,
 
   /*  Async getComponent is only invoked when route matches   */

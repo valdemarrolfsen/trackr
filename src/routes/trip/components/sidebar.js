@@ -20,17 +20,17 @@ class Sidenav extends Component {
           <div className="row p-2-0">
             <div className="c-m-4">
               <p>Max height:</p>
-              <p><span className="fs-30">534</span>m</p>
+              <p><span className="fs-20">534</span>m</p>
             </div>
 
             <div className="c-m-4">
               <p>Avg. height:</p>
-              <p><span className="fs-30">378</span>m</p>
+              <p><span className="fs-20">378</span>m</p>
             </div>
 
             <div className="c-m-4">
               <p>Min height:</p>
-              <p><span className="fs-30">245</span>m</p>
+              <p><span className="fs-20">245</span>m</p>
             </div>
           </div>
 
@@ -42,13 +42,13 @@ class Sidenav extends Component {
 
           <div className="row row-center">
             <div className="c-m-4">
-              <p><span className="fs-30">2</span>hours</p>
+              <p><span className="fs-20">2</span>hours</p>
             </div>
             <div className="c-m-4">
-              <p><span className="fs-30">34</span>minutes</p>
+              <p><span className="fs-20">34</span>minutes</p>
             </div>
             <div className="c-m-4">
-              <p><span className="fs-30">56</span>seconds</p>
+              <p><span className="fs-20">56</span>seconds</p>
             </div>
           </div>
 

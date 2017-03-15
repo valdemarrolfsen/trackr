@@ -1,16 +1,19 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 
 import {ActionCreators} from '../../redux/actionCreators';
 
 // Components
-import Sidebar from './components/sidenav';
-import Card from './components/card';
+import Card from '../../components/card/card';
 
 import './trips.scss';
 
 class Trips extends Component {
+
+  static propTypes = {
+    listTrips: PropTypes.func
+  };
 
   constructor(props) {
     super(props);
@@ -26,9 +29,8 @@ class Trips extends Component {
 
     return (
       <div className="h-100-p">
-        <Sidebar />
-        <div className="trip-container bg-stable-light w-100-p has-nav-side-lg">
-          <div className="row p-2-2">
+        <div className="bg-stable-light w-100-p">
+          <div className="row">
             {trips}
           </div>
         </div>

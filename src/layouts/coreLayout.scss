@@ -1,3 +1,7 @@
 .container {
   min-height: 100vh;
 }
+
+.dashboard-container {
+  min-height: calc(100vh - 80px);
+}

@@ -16,19 +16,16 @@ class TripChart extends Component {
     const { trip } = this.props;
 
     if (trip) {
-      console.log(trip);
 
-      var data = trip.geoPoints.map((point, index) => {
+      let data = trip.geoPoints.map((point, index) => {
         return {
           x: index,
           y: point.altitude
         };
       });
 
-      console.log(data);
-
-      var ctx = document.getElementById("tripChart");
-      var myChart = new Chart(ctx, {
+      let ctx = document.getElementById("tripChart");
+      let myChart = new Chart(ctx, {
         type: 'line',
         data: {
           datasets: [{

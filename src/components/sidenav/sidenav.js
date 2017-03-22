@@ -7,7 +7,7 @@ class Sidebar extends Component {
   render() {
     let links = [
       {name: 'My trips', path: '/trips/', icon: 'fa-globe'},
-      {name: 'Favourites', path: '/trips/favourites', icon: 'fa-star'}
+      {name: 'Statistics', path: '/trips/statistics', icon: 'fa-bar-chart'}
     ];
 
     links = links.map((link, i) => {

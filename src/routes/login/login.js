@@ -31,7 +31,7 @@ class Login extends Component {
     e.preventDefault();
 
     return this.props.loginUser(this.state.username, this.state.password).then(() => {
-      browserHistory.push('/trips/all');
+      browserHistory.push('/trips/');
       console.log('User logged in');
     });
   }
@@ -41,7 +41,11 @@ class Login extends Component {
       <div className="login-container bg-image cover-dark cover-7 row row-center row-center-v"
            style={{'backgroundImage': `url(${bg})`}}>
 
-        <form className="cover-content w-400" onSubmit={(e) => {this.doLogin(e)}}>
+        <form className="cover-content color-light w-400" onSubmit={(e) => {this.doLogin(e)}}>
+
+          <div className="t-center">
+            <h2 className="t-300">Sign in</h2>
+          </div>
 
           <div className="p-2-0">
             <div className="material-input">

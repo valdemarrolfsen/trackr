@@ -23,8 +23,8 @@ class Trips extends Component {
 
   render() {
 
-    let trips = this.props.trips.map(trip => {
-      return <Card key={trip._id} trip={trip} />;
+    let trips = this.props.trips.map((trip, i) => {
+      return <Card key={trip._id} index={i} trip={trip} />;
     });
 
     return (

@@ -7,13 +7,12 @@ class Map extends Component {
 
   static propTypes = {
     trip:PropTypes.object,
-    options: PropTypes.object
+    options: PropTypes.object,
+    index: PropTypes.number
   };
 
   constructor(props) {
     super(props);
-
-    console.log(props.options);
 
     this.state = {
       map: null,
@@ -27,9 +26,9 @@ class Map extends Component {
 
   componentDidMount() {
 
-    const {trip} = this.props;
+    const {trip, index} = this.props;
 
-    this.state.map = new google.maps.Map(document.getElementById('map'), this.state.options);
+    this.state.map = new google.maps.Map(document.getElementById(`map${index}`), this.state.options);
 
     if (trip && trip.geoPoints && this.state.map) {
       this.addMarkers(trip);
@@ -73,14 +72,14 @@ class Map extends Component {
 
   render() {
 
-    const {trip} = this.props;
+    const {trip, index} = this.props;
 
     if (trip && trip.geoPoints && this.state.map) {
       this.addMarkers(trip);
     }
 
     return (
-      <div id="map"></div>
+      <div className="map" id={`map${index}`}></div>
     );
   }
 }

@@ -6,6 +6,7 @@ import Login from './login'
 import Register from './register';
 import Trips from './trips';
 import Trip from './trip';
+import Statistics from './statistics';
 
 export const createRoutes = (store) => ({
   path        : '/',
@@ -20,7 +21,7 @@ export const createRoutes = (store) => ({
       component:DashboardLayout,
       indexRoute: Trips(store),
       childRoutes: [
-
+        Statistics(store)
       ]
     }
   ]

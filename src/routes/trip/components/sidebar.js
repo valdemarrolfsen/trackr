@@ -13,57 +13,75 @@ class Sidenav extends Component {
   render() {
     const {trip} = this.props;
 
+    let report;
+
     return (
       <div className="sidebar color-light">
         <div className="h-100-p t-center">
           <h6 className="t-400 t-upper">Key heights</h6>
-          <div className="row p-2-0">
-            <div className="c-m-4">
+          <div className="row p-1-0">
+            <div className="c-m-6">
               <p>Max height:</p>
-              <p><span className="fs-20">534</span>m</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.altitudeExtremas[1] : ''}</span>m</p>
             </div>
 
-            <div className="c-m-4">
-              <p>Avg. height:</p>
-              <p><span className="fs-20">378</span>m</p>
-            </div>
-
-            <div className="c-m-4">
+            <div className="c-m-6">
               <p>Min height:</p>
-              <p><span className="fs-20">245</span>m</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.altitudeExtremas[0] : ''}</span>m</p>
             </div>
           </div>
 
-          <div className="row p-2-0 dividing-border">
+          <div className="row p-1-0 dividing-border">
+            <div className="c-m-12">
+              <h6 className="t-400 t-upper">Highets vertical speed</h6>
+            </div>
+          </div>
+
+          <div className="row p-1-0 p-bottom">
+            <div className="c-m-6">
+              <p>Uppwards:</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.highestVerticalSpeed[0] : ''}</span>m</p>
+            </div>
+
+            <div className="c-m-6">
+              <p>Downwards:</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.highestVerticalSpeed[1] : ''}</span>m</p>
+            </div>
+          </div>
+
+          <div className="row p-1-0 dividing-border">
             <div className="c-m-12">
               <h6 className="t-400 t-upper">Total air time</h6>
             </div>
           </div>
 
-          <div className="row row-center">
+          <div className="row row-center p-1-0 p-bottom">
             <div className="c-m-4">
-              <p><span className="fs-20">2</span>hours</p>
+              <p><span className="fs-15">2</span>hours</p>
             </div>
             <div className="c-m-4">
-              <p><span className="fs-20">34</span>minutes</p>
+              <p><span className="fs-15">34</span>minutes</p>
             </div>
             <div className="c-m-4">
-              <p><span className="fs-20">56</span>seconds</p>
+              <p><span className="fs-15">56</span>seconds</p>
             </div>
           </div>
 
-          <div className="row row-center p-2-0">
-            <div className="c-m-6 p-0-1 p-right">
-              <Button classNames={'btn-sm btn-border-stable rounded-3 w-100-p h-40'}
-                      loading={false}
-                      rightIcon="pencil"
-                      text={'Edit info'} />
+          <div className="row p-1-0 dividing-border">
+            <div className="c-m-12">
+              <h6 className="t-400 t-upper">Other</h6>
             </div>
-            <div className="c-m-6 p-0-1 p-left">
-              <Button classNames={'btn-sm btn-border-stable rounded-3 w-100-p h-40'}
-                      loading={false}
-                      rightIcon="star-o"
-                      text={'Set as favourite'} />
+          </div>
+
+          <div className="row p-1-0 p-bottom">
+            <div className="c-m-6">
+              <p>Distance traveled:</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.tripLength.toFixed(1) : ''}</span>m</p>
+            </div>
+
+            <div className="c-m-6">
+              <p>Glide ratio:</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.glideRatio.toFixed(2) : ''}</span></p>
             </div>
           </div>
 

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Button from '../../components/button/button';
+import { Link } from 'react-router';
 
 import bgImage from '../../resources/img/bg.png'
 
@@ -14,13 +15,18 @@ export const Home = () => (
 
         <div className="t-center p-1-1 fs-12">
 
-          <Button classNames={'btn-md btn-border-light rounded-3 m-0-1'}
-                  loading={false}
-                  text={'Sign in'} />
+          <Link to={'/login/'}>
+            <Button classNames={'btn-md btn-border-light rounded-3 m-0-1'}
+                    loading={false}
+                    text={'Sign in'} />
+          </Link>
 
-          <Button classNames={'btn-md btn-border-light rounded-3 m-0-1'}
-                  loading={false}
-                  text={'Register profile'} />
+          <Link to={'/register/'}>
+            <Button classNames={'btn-md btn-border-light rounded-3 m-0-1'}
+                    loading={false}
+                    text={'Register profile'} />
+          </Link>
+
         </div>
       </div>
 

@@ -38,7 +38,11 @@ class Register extends Component {
       <div className="login-container bg-image cover-dark cover-7 row row-center row-center-v"
            style={{'backgroundImage': `url(${bg})`}}>
 
-        <form className="cover-content w-400" onSubmit={(e) => {this.doRegister(e)}}>
+        <form className="cover-content color-light w-400" onSubmit={(e) => {this.doRegister(e)}}>
+
+          <div className="t-center">
+            <h2 className="t-300">Register user</h2>
+          </div>
 
           <div className="p-2-0">
             <div className="material-input">
@@ -75,7 +79,7 @@ class Register extends Component {
                     loading={false}
                     type={'submit'}
                     rightIcon={'pencil'}
-                    text={'Register user'} />
+                    text={'Register'} />
           </div>
 
         </form>

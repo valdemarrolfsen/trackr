@@ -8,12 +8,13 @@ import Map from '../map/map';
 class Card extends Component {
 
   static propTypes = {
-    trip: PropTypes.object
+    trip: PropTypes.object,
+    index: PropTypes.number
   };
 
   render() {
 
-    const { trip } = this.props;
+    const { trip, index } = this.props;
 
     let date = new Date(trip.startTimestamp);
 
@@ -27,10 +28,12 @@ class Card extends Component {
       center: {lng:trip.loc.coordinates[0], lat: trip.loc.coordinates[1]}
     };
 
+    console.log(index);
+
     return (
       <Link to={`/trips/${trip._id}/`} className="card bg-light hover-light m-1-1 p-1-1">
         <div className="h-200 w-300 bg-primary">
-          <Map trip={trip} options={options} />
+          <Map trip={trip} index={index} options={options} />
         </div>
         <div className="p-1-0 p-top">
           <h5>{trip.name}</h5>

@@ -29,7 +29,7 @@ class TripChart extends Component {
         type: 'line',
         data: {
           datasets: [{
-            label: 'Simo data',
+            label: 'Height per second',
             data: data,
             backgroundColor: 'rgba(255, 255, 255, 0.2)',
             borderColor: 'rgba(255, 255, 255, 0.3)'

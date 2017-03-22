@@ -1,10 +1,10 @@
 @import "../../../styles/variables";
 
 // Variables
-$padding: 20px;
+$padding: 1em;
 
 $sb-width: 300px;
-$sb-border-color: lighten($dark, 10%);
+$sb-color: lighten($dark, 10%);
 
 .map-container {
   height: calc(100vh - 80px);
@@ -25,11 +25,11 @@ $sb-border-color: lighten($dark, 10%);
     height: 100%;
     width: 100%;
     padding: $padding;
-    border: 1px solid $sb-border-color;
+    border: 1px solid $sb-color;
     border-radius: 3px;
 
     .dividing-border {
-      border-top: 1px solid $sb-border-color;
+      border-top: 1px solid $sb-color;
     }
 
     .chart-container {

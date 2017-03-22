@@ -32,7 +32,7 @@ class Api {
   static xhr(route, params, verb) {
 
     // 10.22.18.195
-    const url = `http://localhost:8080/v1.0${route}`;
+    const url = `http://35.185.34.95/v1.0${route}`;
 
     let options = Object.assign({method:verb}, params ? {data: JSON.stringify(params)} : null);
     options.headers = Api.headers();

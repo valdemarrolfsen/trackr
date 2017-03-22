@@ -19,6 +19,7 @@ class Header extends Component {
       links.push({name: 'Sign out', path: '/logout'});
     } else {
       links.push({name: 'Sign in', path: '/login'});
+      links.push({name: 'Register user', path: '/register'});
     }
 
     links = links.map((link, i) => {

@@ -17,6 +17,15 @@ export function loginUser(username, password) {
   }
 }
 
+export function registerUser(username, password) {
+
+  let data = {username:username, password:password};
+
+  return (dispatch, getState) => {
+    return Api.post('/users/', data);
+  }
+}
+
 export function refreshToken() {
   return (dispatch, getState) => {
     return Api.post('/login/refresh/', {refreshToken:localStorage.getItem('refresh')})

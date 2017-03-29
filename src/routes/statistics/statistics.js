@@ -17,6 +17,7 @@ class Statistics extends Component {
 
     return (
       <div className="row h-100-p bg-stable-light p-2-2">
+
         <div className="c-m-12 bg-light card p-1-2">
           <div className="row t-center">
 
@@ -37,6 +38,9 @@ class Statistics extends Component {
 
           </div>
         </div>
+
+
+
       </div>
     )
   }

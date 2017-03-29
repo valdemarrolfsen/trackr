@@ -22,12 +22,12 @@ class Sidenav extends Component {
           <div className="row p-1-0">
             <div className="c-m-6">
               <p>Max height:</p>
-              <p><span className="fs-15">{trip ? trip.tripReport.altitudeExtremas[1] : ''}</span>m</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.altitudeExtremas[1].toFixed(2) : ''}</span>m</p>
             </div>
 
             <div className="c-m-6">
               <p>Min height:</p>
-              <p><span className="fs-15">{trip ? trip.tripReport.altitudeExtremas[0] : ''}</span>m</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.altitudeExtremas[0].toFixed(2) : ''}</span>m</p>
             </div>
           </div>
 
@@ -40,12 +40,12 @@ class Sidenav extends Component {
           <div className="row p-1-0 p-bottom">
             <div className="c-m-6">
               <p>Uppwards:</p>
-              <p><span className="fs-15">{trip ? trip.tripReport.highestVerticalSpeed[0] : ''}</span>m</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.highestVerticalSpeed[0].toFixed(2) : ''}</span>m</p>
             </div>
 
             <div className="c-m-6">
               <p>Downwards:</p>
-              <p><span className="fs-15">{trip ? trip.tripReport.highestVerticalSpeed[1] : ''}</span>m</p>
+              <p><span className="fs-15">{trip ? trip.tripReport.highestVerticalSpeed[1].toFixed(2) : ''}</span>m</p>
             </div>
           </div>
 

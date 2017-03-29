@@ -16,6 +16,7 @@ class Map extends Component {
 
     this.state = {
       map: null,
+      marker: null,
       options: Object.assign({
         zoom: 4,
         streetViewControl: false,
@@ -36,43 +37,59 @@ class Map extends Component {
   }
 
   addMarkers(trip) {
-    let icon = {
-      path: google.maps.SymbolPath.CIRCLE,
-      fillOpacity: 1.0,
-      fillColor: "#017b55",
-      strokeOpacity: 1.0,
-      strokeColor: "#017b55",
-      strokeWeight: 1.0,
-      scale: 5.0
-    };
-
-    let markers = [];
+    let points = [];
 
     trip.geoPoints.forEach(point => {
-
-      icon.fillColor = `rgb(255, ${point.altitude}, ${point.altitude})`;
-      icon.strokeColor = icon.fillColor;
-
-      let marker = new google.maps.Marker({
-        position: {lat: point.latitude, lng: point.longitude},
-        map: this.state.map,
-        icon: icon
-      });
-
-      markers.push(marker);
+      points.push({lat: point.latitude, lng: point.longitude});
     });
 
     let bounds = new google.maps.LatLngBounds();
-    markers.forEach(m => {
-      bounds.extend(m.getPosition());
+    points.forEach(p => {
+      bounds.extend(p);
     });
 
     this.state.map.fitBounds(bounds);
+
+    let flightPath = new google.maps.Polyline({
+      path: points,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+
+    flightPath.setMap(this.state.map);
   }
 
   render() {
 
-    const {trip, index} = this.props;
+    let icon = {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillOpacity: 1.0,
+      fillColor: "#4e8fff",
+      strokeOpacity: 1.0,
+      strokeColor: "#ffffff",
+      shadow: '#000000',
+      strokeWeight: 2.5,
+      scale: 8.0
+    };
+
+    const {trip, index, markerIndex} = this.props;
+
+    if (markerIndex) {
+      let point = trip.geoPoints[markerIndex];
+
+      if (this.state.marker) {
+        let pos = new google.maps.LatLng(point.latitude, point.longitude);
+        this.state.marker.setPosition(pos);
+      } else {
+        this.state.marker = new google.maps.Marker({
+          position: {lat: point.latitude, lng: point.longitude},
+          map: this.state.map,
+          icon: icon
+        });
+      }
+    }
 
     if (trip && trip.geoPoints && this.state.map) {
       this.addMarkers(trip);
@@ -85,7 +102,9 @@ class Map extends Component {
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    markerIndex: state.selectedMarkerIndex
+  }
 }
 
 export default connect(mapStateToProps)(Map);
